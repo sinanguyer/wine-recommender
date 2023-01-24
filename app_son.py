@@ -390,17 +390,18 @@ with tab2:
     form = st.form(key='my_form')
     user_input = form.text_input(label='Enter key words for wine i.e fresh, red, black, tannin etc.')
     submit_button = form.form_submit_button(label='Recommend Me by Special Description')
-    @st.cache(allow_output_mutation=True)
-    def get_data():
-        return []
+    #@st.cache(allow_output_mutation=True)
+    #def get_data():
+    #    return []
     
     if submit_button:
-        get_data().append(user_input)
+        #get_data().append(user_input)
     
-        data = [get_data()[0]]
-    
+        #data = [get_data()[0]]
+        user_input = str(user_input)
+        pred3 = model.predict(vectorizer.transform(user_input))
 
-        pred3 = model.predict(vectorizer.transform(data))
+        #pred3 = model.predict(vectorizer.transform(data))
         ww = df_new_clusters[pred3[0]].tolist()
         zf1=zipfile.ZipFile('winemag-data-130k-v2.csv.zip','r')
         zipfile.ZipFile.namelist(zf1)
