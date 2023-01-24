@@ -414,7 +414,7 @@ with tab2:
             desc["description"] = desc["description"].apply(prepare_text)
             for i in range(n):
                 if fuzz.token_sort_ratio(ww,desc["description"][i].split()) > 65:
-                title.append(desc["title"][i])
+                    title.append(desc["title"][i])
             return pd.DataFrame(title[0:10])    
         st.write(ration(ww,desc["description"]))
            
