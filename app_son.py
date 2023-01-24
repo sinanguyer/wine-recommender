@@ -407,18 +407,28 @@ with tab2:
     
 
         seq = difflib.SequenceMatcher()
-
-
-        def ration(ww,df):    
+         def ratio(ww,pred,df):
             title=[]
-            n = len(desc["description"])
+            n = len(df_new["description"])
+            ww = df_new_clusters[pred3[0]].tolist()
             desc["description"] = desc["description"].apply(prepare_text)
             for i in range(n):
-                seq.set_seqs(ww,desc["description"][i].split())
-                if seq.ratio()*100 > 20:
-                    title.append(desc["title"][i])
-            return pd.DataFrame(title[1:6])
-        st.write(ration(ww,desc["description"]))
+                if fuzz.token_sort_ratio(ww,desc["description"][i].split()) > 65:
+                title.append(desc["title"][i])
+            return pd.DataFrame(title[0:10])    
+         st.write(ration(ww,desc["description"]))
+           
+
+#         def ration(ww,df):    
+#             title=[]
+#             n = len(desc["description"])
+#             desc["description"] = desc["description"].apply(prepare_text)
+#             for i in range(n):
+#                 seq.set_seqs(ww,desc["description"][i].split())
+#                 if seq.ratio()*100 > 20:
+#                     title.append(desc["title"][i])
+#             return pd.DataFrame(title[1:6])
+#        st.write(ration(ww,desc["description"]))
 
     
 
