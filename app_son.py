@@ -398,8 +398,8 @@ with tab2:
         #get_data().append(user_input)
     
         #data = [get_data()[0]]
-        user_input = [user_input]
-        pred3 = model.predict(vectorizer.transform(user_input))
+        user = [user_input]
+        pred3 = model.predict(vectorizer.transform(user))
 
         #pred3 = model.predict(vectorizer.transform(data))
         ww = df_new_clusters[pred3[0]].tolist()
