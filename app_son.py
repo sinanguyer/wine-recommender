@@ -407,7 +407,7 @@ with tab2:
     
 
         seq = difflib.SequenceMatcher()
-         def ratio(ww,df):
+        def ratio(ww,df):
             title=[]
             n = len(df_new["description"])
             ww = df_new_clusters[pred3[0]].tolist()
@@ -416,7 +416,7 @@ with tab2:
                 if fuzz.token_sort_ratio(ww,desc["description"][i].split()) > 65:
                 title.append(desc["title"][i])
             return pd.DataFrame(title[0:10])    
-         st.write(ration(ww,desc["description"]))
+        st.write(ration(ww,desc["description"]))
            
 
 #         def ration(ww,df):    
