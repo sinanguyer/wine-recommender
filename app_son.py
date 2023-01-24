@@ -398,7 +398,7 @@ with tab2:
         #get_data().append(user_input)
     
         #data = [get_data()[0]]
-        user_input = str(user_input)
+        user_input = [user_input]
         pred3 = model.predict(vectorizer.transform(user_input))
 
         #pred3 = model.predict(vectorizer.transform(data))
