@@ -355,7 +355,7 @@ with tab2:
 
     k_clusters = 14
 
-    model = KMeans(n_clusters=k_clusters, init='k-means++', n_init=10, max_iter=600, tol=0.000001, random_state=0)
+    model = KMeans(n_clusters=k_clusters, init='k-means++', n_init=10, max_iter=600, tol=0.000001)
     model.fit(X_train)
     cluster_labels = model.predict(X_train)
 
@@ -415,7 +415,8 @@ with tab2:
             for i in range(n):
                 if fuzz.token_sort_ratio(ww,desc["description"][i].split()) > 50:
                     title.append(desc["title"][i])
-            return pd.DataFrame(title[0:10])    
+            print(pd.DataFrame(title[0:6]))
+            #return pd.DataFrame(title[0:6])    
         st.write(ration(ww,desc["description"]))
            
 
