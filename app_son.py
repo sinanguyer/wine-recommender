@@ -407,7 +407,7 @@ with tab2:
     
 
         seq = difflib.SequenceMatcher()
-         def ratio(ww,pred,df):
+         def ratio(ww,df):
             title=[]
             n = len(df_new["description"])
             ww = df_new_clusters[pred3[0]].tolist()
