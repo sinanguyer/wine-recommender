@@ -382,14 +382,17 @@ with tab2:
     df_new_clusters = pd.DataFrame.from_dict(results_dict)
 
 
-    @st.cache(allow_output_mutation=True)
-    def get_data():
-        return []
+#     @st.cache(allow_output_mutation=True)
+#     def get_data():
+#         return []
 
     
     form = st.form(key='my_form')
     user_input = form.text_input(label='Enter key words for wine i.e fresh, red, black, tannin etc.')
     submit_button = form.form_submit_button(label='Recommend Me by Special Description')
+    @st.cache(allow_output_mutation=True)
+    def get_data():
+        return []
     
     if submit_button:
         get_data().append(user_input)
